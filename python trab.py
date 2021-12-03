@@ -93,12 +93,13 @@ def c2(listaParaC2):
 
 
 
-
+#Leitura arquivo com os dois binários em string
 arquivo = open('entrada.txt', 'r')
 numBin = arquivo.readline().strip('\n')
 numBin1 = arquivo.readline().strip('\n')
 arquivo.close()
 
+#Listas utilizadas
 listaNums = []
 listaNumsConv = []
 listaNumsConv1 = []
@@ -112,13 +113,13 @@ listaC2Subt = []
 listaNumsC2Soma = []
 listaNumsC2Subt = []
 
+#Transformação dos números binários em inteiro e adicionando às listas
 for i in numBin:
     numInt = int(i)
     listaNums.append(numInt)
     listaNumsConv.append(numInt)
     listaNumsC2.append(numInt)
     listaNumsC2Soma.append(numInt)
-
 for i in numBin1:
     numInt1 = int(i)
     listaNums1.append(numInt1)
@@ -126,24 +127,32 @@ for i in numBin1:
     listaNums1C2.append(numInt1)
     listaNumsC2Subt.append(numInt1)
 
+#Lista invertida para realizar a soma/subtração
 listaContrario = list(reversed(listaNums))
 listaContrario1 = list(reversed(listaNums1))
 
+#Conversão base 2 para base 10, usando sinal e magnitude
 conversaoNum = converte(listaNumsConv)
 conversaoNum1 = converte(listaNumsConv1)
 print(conversaoNum)
 print(conversaoNum1)
 espaco()
+
+#Soma e subtração dos números na base 2
 listaNumsSomados = soma(listaContrario, listaContrario1)
 listaNumsSubtraidos = subtracao(listaContrario, listaContrario1)
 print(*listaNumsSubtraidos, sep = "")
 print(*listaNumsSomados, sep = "")
 espaco()
+
+#Conversão do resultado da soma e subtração
 conversaoSoma = converte(listaNumsSomados)
 conversaoSubt = converte(listaNumsSubtraidos)
 print(conversaoSubt)
 print(conversaoSoma)
 espaco()
+
+#Conversão dos números usando complemento de 2
 if listaNumsC2[0] == 0:
     listaC2 = converte(listaNumsC2)
 else:
@@ -155,11 +164,14 @@ else:
 print(listaC2)
 print(lista1C2)
 espaco()
+
 listaSomaParaC2 = soma(listaContrario, listaContrario1)
 ListaSubtParaC2 = subtracao(listaContrario, listaContrario1)
 print(*listaSomaParaC2, sep = "")
 print(*ListaSubtParaC2, sep = "")
 espaco()
+
+#Conversão da some e subtração dos números na base 2 usando complemento de 2
 if listaSomaParaC2[0] == 0:
     listaC2Soma = converte(listaSomaParaC2)
 else:
